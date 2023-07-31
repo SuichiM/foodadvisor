@@ -1,24 +1,10 @@
-const Price = ({ price }) => {
-  let result = '';
+const Price = ({ price, currency = '€' }) => {
+  const [prefix, value] = price;
 
-  switch (price) {
-    case 'p1':
-      result = '€';
-      break;
-    case 'p2':
-      result = '€ €';
-      break;
-    case 'p3':
-      result = '€ € €';
-      break;
-    case 'p4':
-      result = '€ € € €';
-      break;
-
-    default:
-      break;
+  if (prefix !== 'p' || isNaN(value)) {
+    return '?';
   }
-  return <>{result}</>;
+  return <>{currency.repeat(value)}</>;
 };
 
 export default Price;

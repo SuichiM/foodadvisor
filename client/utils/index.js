@@ -83,12 +83,12 @@ export function getData(slug, locale, apiID, kind, preview) {
   }
 }
 
-export async function getRestaurants(key) {
-  const categoryName = key.queryKey[1].category;
-  const placeName = key.queryKey[2].place;
-  const localeCode = key.queryKey[3].locale;
-  const pageNumber = key.queryKey[4].page;
-  const perPage = key.queryKey[5].perPage;
+export async function getRestaurants(query, key) {
+  const { locale: localeCode, page: pageNumber, perPage } = query;
+  const {
+    filters: { category: categoryName, place: placeName, price },
+  } = query;
+
   const start = +pageNumber === 1 ? 0 : (+pageNumber - 1) * perPage;
 
   let baseUrl = getStrapiURL(
@@ -101,6 +101,10 @@ export async function getRestaurants(key) {
 
   if (placeName) {
     baseUrl = `${baseUrl}&filters[place][name][$eq]=${placeName}`;
+  }
+
+  if (price) {
+    baseUrl = `${baseUrl}&filters[price][$eq]=${price}`;
   }
 
   if (localeCode) {
