@@ -1321,6 +1321,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.21.0":
+  version "7.22.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.6.tgz#57d64b9ae3cff1d67eb067ae117dac087f5bd438"
+  integrity sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
 "@babel/template@^7.16.0":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.16.0.tgz#d16a35ebf4cd74e202083356fab21dd89363ddd6"
@@ -3769,6 +3776,14 @@
     "@strapi/utils" "4.6.1"
     sendmail "^1.6.1"
 
+"@strapi/provider-email-sendmail@^4.12.0":
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/@strapi/provider-email-sendmail/-/provider-email-sendmail-4.12.0.tgz#0ac6be88d57e8e4ae83641df4de31769ba63dd50"
+  integrity sha512-4fIOts73hfdovK6wyjXut6UeIsuXfW5opngYIdxIdx1jy0BDw3gVnNOiEzwZfNGHTmqSVQHTjT23SzX/emyZaA==
+  dependencies:
+    "@strapi/utils" "4.12.0"
+    sendmail "^1.6.1"
+
 "@strapi/provider-upload-local@4.6.1":
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/@strapi/provider-upload-local/-/provider-upload-local-4.6.1.tgz#62a17b4b9b020d8243b203f475c8433ae4ececc0"
@@ -3848,6 +3863,18 @@
     lodash "4.17.21"
     prettier "2.7.1"
     typescript "4.6.2"
+
+"@strapi/utils@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.12.0.tgz#243ba073e9bb35f1a53b1a9f1690ef3a7513bc0d"
+  integrity sha512-2N3IDMtvl3Mt5Y1SduMSef7xuzYJb9rlmnqY2cbUviAMPg5zR46vYfdbtLj5o+W3NajBS6b3U5iUNMkcL5d8fQ==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "2.30.0"
+    http-errors "1.8.1"
+    lodash "4.17.21"
+    p-map "4.0.0"
+    yup "0.32.9"
 
 "@strapi/utils@4.6.1":
   version "4.6.1"
@@ -6442,6 +6469,13 @@ date-fns@2.29.3, date-fns@^2.29.3:
   version "2.29.3"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
+
+date-fns@2.30.0:
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.30.0.tgz#f367e644839ff57894ec6ac480de40cae4b0f4d0"
+  integrity sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==
+  dependencies:
+    "@babel/runtime" "^7.21.0"
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
