@@ -1,16 +1,16 @@
-import delve from "dlv";
-import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
-import { useOnClickOutside } from "../../../utils/hooks";
+import delve from 'dlv';
+import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
+import { useOnClickOutside } from '../../../utils/hooks';
 import {
   getLocalizedData,
   listLocalizedPaths,
   localizePath,
-} from "../../../utils/localize";
+} from '../../../utils/localize';
 
 const localeSwitch = ({ pageData, type }) => {
   const router = useRouter();
-  const lang = delve(router.query, "lang");
+  const lang = delve(router.query, 'lang');
   const isMounted = useRef(false);
   const select = useRef();
   const [locale, setLocale] = useState(pageData.attributes.locale);
@@ -42,10 +42,10 @@ const localeSwitch = ({ pageData, type }) => {
   }, [locale, router]);
 
   return (
-    <div className="inline-block text-left" ref={select}>
+    <div className="my-auto items-center px-4" ref={select}>
       <div>
         <button
-          className="md:mt-4 hover:bg-primary-50 hover:text-primary-600 focus:bg-primary-50 focus:text-primary-600 focus:outline-none flex items-center justify-between md:pl-8 cursor-pointer rounded-md"
+          className="hover:bg-primary-50 hover:text-primary-600 focus:bg-primary-50 focus:text-primary-600 focus:outline-none flex items-center justify-between cursor-pointer rounded-md"
           onClick={() => setShowing(!showing)}
         >
           <div className="w-6 h-6">
@@ -61,7 +61,7 @@ const localeSwitch = ({ pageData, type }) => {
       </div>
       <div
         className={`origin-top-right absolute mt-2 w-24 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 ${
-          showing ? "absolute" : "hidden"
+          showing ? 'absolute' : 'hidden'
         }`}
       >
         <div

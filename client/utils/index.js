@@ -63,7 +63,7 @@ export function getData(slug, locale, apiID, kind, preview) {
       slug: slugToReturn,
     };
   } else {
-    const apiUrl = `/${apiID}?locale=${locale}${previewParams}&populate[blocks][populate]=*,buttons.link&populate=localizations&populate[header]=*&populate[seo]=metaSocial`;
+    const apiUrl = `/${apiID}?locale=${locale}${previewParams}&populate[blocks][populate]=*,buttons.link&populate=localizations&populate[header]=*&populate[seo]=metaSocial&populate[form][populate]=*&populate[forgotLink][populate]=*&populate[registerLink][populate]=*`;
 
     if (apiID.includes('-page')) {
       const slugToReturn =

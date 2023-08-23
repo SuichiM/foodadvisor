@@ -1,29 +1,29 @@
-import delve from "dlv";
-import Link from "next/link";
-import { getStrapiMedia } from "../../../../utils";
-import Container from "../../../shared/Container";
-import SocialLogo from "../../../shared/SocialLogo";
-import Gallery from "./gallery.js";
-import Information from "./information";
-import OpeningHours from "./opening-hours";
-import Price from "./price";
-import ReviewSummary from "./review-summary";
-import OverallRating from "./Reviews/overall-rating";
-import Reviews from "./Reviews/reviews";
-import Stars from "./stars";
+import delve from 'dlv';
+import Link from 'next/link';
+import { getStrapiMedia } from '../../../../utils';
+import Container from '../../../shared/Container';
+import SocialLogo from '../../../shared/SocialLogo';
+import Gallery from './gallery.js';
+import Information from './information';
+import OpeningHours from './opening-hours';
+import Price from './price';
+import ReviewSummary from './review-summary';
+import OverallRating from './Reviews/overall-rating';
+import Reviews from './Reviews/reviews';
+import Stars from './stars';
 
 const RestaurantContent = ({ pageData }) => {
-  const reviews = delve(pageData, "attributes.reviews.data");
-  const name = delve(pageData, "attributes.name");
-  const price = delve(pageData, "attributes.price");
-  const locale = delve(pageData, "attributes.locale");
-  const images = delve(pageData, "attributes.images");
-  const category = delve(pageData, "attributes.category");
-  const information = delve(pageData, "attributes.information");
-  const description = delve(information, "description");
-  const opening_hours = delve(information, "opening_hours");
-  const location = delve(information, "location");
-  const socialNetworks = delve(pageData, "attributes.socialNetworks");
+  const reviews = delve(pageData, 'attributes.reviews.data');
+  const name = delve(pageData, 'attributes.name');
+  const price = delve(pageData, 'attributes.price');
+  const locale = delve(pageData, 'attributes.locale');
+  const images = delve(pageData, 'attributes.images');
+  const category = delve(pageData, 'attributes.category');
+  const information = delve(pageData, 'attributes.information');
+  const description = delve(information, 'description');
+  const opening_hours = delve(information, 'opening_hours');
+  const location = delve(information, 'location');
+  const socialNetworks = delve(pageData, 'attributes.socialNetworks');
 
   return (
     <Container>
@@ -31,7 +31,7 @@ const RestaurantContent = ({ pageData }) => {
         <Link href={`/restaurants?lang=${locale}`}>
           <button
             type="button"
-            className="ml-2 py-4 px-6 bg-secondary hover:bg-secondary-darker text-white w-1/8 text-center text-base font-semibold shadow-sm rounded-md"
+            className="ml-2 py-4 px-6 bg-secondary hover:bg-secondary-darker text-white w-1/8 text-center text-base font-semibold shadow-sm rounded-full"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,9 +53,9 @@ const RestaurantContent = ({ pageData }) => {
           <div className="lg:flex lg:flex-wrap w-full lg:w-1/2">
             <div className="p-2 md:w-full">
               <img
-                alt={delve(images, "data.0.attributes.alternativeText")}
-                className="object-center block object-cover"
-                src={getStrapiMedia(delve(images, "data.0.attributes.url"))}
+                alt={delve(images, 'data.0.attributes.alternativeText')}
+                className="object-center block object-cover rounded-md"
+                src={getStrapiMedia(delve(images, 'data.0.attributes.url'))}
               />
               <Gallery images={images.data} />
             </div>
@@ -63,7 +63,7 @@ const RestaurantContent = ({ pageData }) => {
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 p-4">
             {category && (
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                {delve(category, "data.attributes.name")}
+                {delve(category, 'data.attributes.name')}
               </h2>
             )}
             {name && (
@@ -85,7 +85,7 @@ const RestaurantContent = ({ pageData }) => {
                 {socialNetworks &&
                   socialNetworks.map((network, index) => (
                     <SocialLogo
-                      url={delve(network, "url")}
+                      url={delve(network, 'url')}
                       size="20"
                       key={index}
                     />

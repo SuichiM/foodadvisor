@@ -41,7 +41,7 @@ const Gallery = ({ images }) => {
         images.map((image, index) => (
           <img
             alt={delve(image, 'attributes.alternativeText')}
-            className="block object-fill px-1"
+            className="block object-fill px-1 rounded-md"
             src={getStrapiMedia(delve(image, 'attributes.url'))}
             key={`imageGallery-${index}`}
           />

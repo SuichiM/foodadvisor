@@ -31,10 +31,13 @@ module.exports = ({ env }) => ({
         defaultReplyTo: 'suichiM@strapi.io',
         testAddress: 'martiniroqueesteban@gmail.com',
         silent: false,
-        //devPort: 1025, // Default: False
-        devHost: 'localhost', // Default: localhost
-        smtpPort: 25, // Default: 25
-        smtpHost: 'localhost', // Default: -1 - extra smtp host after resolveMX
+      },
+    },
+  },
+  'user-permissions': {
+    config: {
+      jwt: {
+        expiresIn: '1d',
       },
     },
   },

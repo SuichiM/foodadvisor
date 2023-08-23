@@ -18,7 +18,11 @@ const OverallRating = ({ reviews }) => {
   }
 
   const notes = reviews.map((review) => review.attributes.note);
-  const average = notes.reduce((a, b) => a + b, 0) / reviewsCount;
+  /* average with 2 decimals */
+  const average =
+    Math.round(
+      (notes.reduce((acc, note) => acc + note, 0) / notes.length) * 100
+    ) / 100;
 
   const reviewNotes = [
     {
@@ -50,15 +54,12 @@ const OverallRating = ({ reviews }) => {
           <p className="text-gray-700 dark:text-white  text-2xl font-light mb-4">
             Overall Rating
           </p>
-
           {reviewsCount && (
             <p className="text-5xl text-black dark:text-white font-bold">
               {average}/5
             </p>
           )}
-
           {reviewsCount && <p className="my-4">{reviewsCount} reviews</p>}
-
           {reviewNotes &&
             reviewNotes.map((item, index) => (
               <div key={`noteProgress-${index}`}>

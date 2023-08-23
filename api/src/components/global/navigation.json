@@ -2,7 +2,8 @@
   "collectionName": "components_global_navigations",
   "info": {
     "displayName": "navigation",
-    "icon": "location-arrow"
+    "icon": "location-arrow",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,6 +18,11 @@
       "component": "shared.link"
     },
     "rightButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    },
+    "loginButton": {
       "type": "component",
       "repeatable": false,
       "component": "shared.link"

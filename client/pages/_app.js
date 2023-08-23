@@ -1,14 +1,18 @@
-import App from "next/app";
-import ErrorPage from "next/error";
-import { QueryClient, QueryClientProvider } from "react-query";
+import App from 'next/app';
+import ErrorPage from 'next/error';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { GlobalProvider } from '../context/global';
+
 import 'tailwindcss/tailwind.css';
-import { getStrapiURL } from "../utils";
-import { getLocalizedParams } from "../utils/localize";
+import { getStrapiURL } from '../utils';
+import { getLocalizedParams } from '../utils/localize';
+import { AuthProvider } from '../context/auth';
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
   const { global } = pageProps;
+
   if (global === null) {
     return <ErrorPage statusCode={404} />;
   }
@@ -16,7 +20,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <GlobalProvider globalData={{ global }}>
+          <AuthProvider>
+            <Component {...pageProps} />
+          </AuthProvider>
+        </GlobalProvider>
       </QueryClientProvider>
     </>
   );
