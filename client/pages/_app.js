@@ -1,6 +1,10 @@
 import App from 'next/app';
 import ErrorPage from 'next/error';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
+/* import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+ */
 import { GlobalProvider } from '../context/global';
 
 import 'tailwindcss/tailwind.css';
@@ -25,6 +29,7 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
           </AuthProvider>
         </GlobalProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
   );
